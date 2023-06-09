@@ -5882,9 +5882,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30000981, caniuse-lite@npm:^1.0.30001035, caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001489":
-  version: 1.0.30001495
-  resolution: "caniuse-lite@npm:1.0.30001495"
-  checksum: c0a139a2e679ca60ae1ce2aaf0e9f5850cc1016b3735200cc1a1347bd7737f0a2a5993bc3f88f43a13ec687befffdae212a849f782702a6fe488de123e92351e
+  version: 1.0.30001497
+  resolution: "caniuse-lite@npm:1.0.30001497"
+  checksum: 6721120f9a588c442a81cf32f911b4e97a88cb129c27bd2cb0fce6447ad058baa12affa1ee09c517f9e088c7ce74964154d032b6631f66d75dd37c6bc59a67f6
   languageName: node
   linkType: hard
 
@@ -12595,13 +12595,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lottie-web@npm:^5.1.3":
-  version: 5.12.0
-  resolution: "lottie-web@npm:5.12.0"
-  checksum: 77c35be880e484d1a766f21f789ede7c7be59e957579580a18c2dfec08c4812c03e1d652e453166c31fd80556446d6b857fb490d901e34154105532519bc5ef5
-  languageName: node
-  linkType: hard
-
 "lower-case@npm:^2.0.2":
   version: 2.0.2
   resolution: "lower-case@npm:2.0.2"
@@ -16269,18 +16262,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-lottie@npm:^1.2.3":
-  version: 1.2.3
-  resolution: "react-lottie@npm:1.2.3"
-  dependencies:
-    babel-runtime: ^6.26.0
-    lottie-web: ^5.1.3
-  peerDependencies:
-    react: ^0.14.7 || ^15.0.0 || ^16.0.0
-  checksum: 05326e40b45cb1f52efe324386875858cec4725392d98033f767566c2f101bdbf59111a42108596ef63c96c897f13cf8d3c612e7a288d0dee3e1b7fb1a7911a2
-  languageName: node
-  linkType: hard
-
 "react-reconciler@npm:^0.25.1":
   version: 0.25.1
   resolution: "react-reconciler@npm:0.25.1"
@@ -19530,7 +19511,6 @@ __metadata:
     moment: 2.25.1
     prettier: ^2.2.1
     pretty-quick: ^2.0.1
-    prop-types: ^15.7.2
     qs: ^6.9.6
     react: ^16.14.0
     react-app-polyfill: ^1.0.6
@@ -19538,7 +19518,6 @@ __metadata:
     react-chartjs-2: ^5.2.0
     react-dom: ^16.14.0
     react-i18next: ^12.2.0
-    react-lottie: ^1.2.3
     react-redux: ^7.2.2
     react-router-dom: ^5.1.2
     react-scripts: 3.4.1

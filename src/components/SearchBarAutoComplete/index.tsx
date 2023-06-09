@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable no-alert */
 import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
 import Axios from "axios";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { TextField, InputAdornment, makeStyles, withStyles } from "@material-ui/core";

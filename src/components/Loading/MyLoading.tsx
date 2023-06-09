@@ -1,7 +1,4 @@
-import React from 'react';
-import Lottie from 'react-lottie';
-import { makeStyles } from '@material-ui/core';
-import animationData from '../../assets/loading.json';
+import { CircularProgress, makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles({
     loading: {
@@ -13,24 +10,12 @@ const useStyles = makeStyles({
     }
 })
 
-const MyLoading = (props: { height?: string | number, width?: string | number }) => {
-    const { height, width } = props
+const MyLoading = () => {
     const classes = useStyles()
-    const defaultOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: animationData,
-        rendererSettings: {
-            preserveAspectRatio: 'xMidYMid slice'
-        }
-    };
 
     return (
         <div className={classes.loading}>
-            <Lottie
-                options={defaultOptions}
-                height={height}
-                width={width} />
+            <CircularProgress/>
         </div>
     );
 };

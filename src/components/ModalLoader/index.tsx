@@ -41,7 +41,7 @@ const ModalLoader = (props: { isOpen: boolean; content?: ReactElement }) => {
             <Typography style={{ color: "white", fontSize: 20 }}>{props.content}</Typography>
           ) : (
             <div className={classes.paper}>
-              <MyLoading height="100px" width="100px" />
+              <MyLoading />
             </div>
           )}
         </Fade>
