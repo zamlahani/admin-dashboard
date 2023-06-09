@@ -5,26 +5,24 @@ import SecureStorage from 'secure-web-storage';
 const securestorage_secret_key = import.meta.env.VITE_SECURESTORAGE_SECRET_KEY;
 
 const secureStorage = new SecureStorage(sessionStorage, {
-  hash: function hash(key) {
+  hash: function hash(key: CryptoJS.lib.WordArray) {
     key = CryptoJS.SHA256(key, securestorage_secret_key);
 
     return key.toString();
   },
-  encrypt: function encrypt(data) {
+  encrypt: function encrypt(data: CryptoJS.lib.WordArray) {
     try {
-      data = CryptoJS.AES.encrypt(data, securestorage_secret_key);
-      data = data.toString();
-      return data;
+      const encStr = CryptoJS.AES.encrypt(data, securestorage_secret_key);
+      return encStr.toString();
     } catch (err) {
       console.log(err);
       return;
     }
   },
-  decrypt: function decrypt(data) {
+  decrypt: function decrypt(data: CryptoJS.lib.CipherParams) {
     try {
-      data = CryptoJS.AES.decrypt(data, securestorage_secret_key);
-      data = data.toString(CryptoJS.enc.Utf8);
-      return data;
+      const decStr = CryptoJS.AES.decrypt(data, securestorage_secret_key);
+      return decStr.toString(CryptoJS.enc.Utf8);
     } catch (err) {
       console.log(err);
       return;
