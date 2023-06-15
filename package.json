@@ -65,7 +65,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslok": {
+  "browserslist": {
     "production": [
       ">0.2%",
       "not dead",
