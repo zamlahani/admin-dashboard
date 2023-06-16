@@ -6,7 +6,7 @@ import { Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import { Layout } from "antd";
 import { I18nextProvider } from "react-i18next";
-import moment from "moment";
+import dayjs from "dayjs";
 import { useSessionStorage } from "react-use-sessionstorage";
 import Axios, { AxiosResponse } from "axios";
 import qs from "qs";
@@ -44,8 +44,8 @@ const AppIndex = () => {
   const [userMenus, setUserMenus] = useState([]);
   const [userSignature, setUserSignature] = useState([]);
   const [userAreas, setUserAreas] = useState([]);
-  const [tokenTimeout, setTokenTimeout] = useState<number>();
-  const [popupTimeout, setPopupTimeout] = useState<number>();
+  const [tokenTimeout, setTokenTimeout] = useState<NodeJS.Timeout>();
+  const [popupTimeout, setPopupTimeout] = useState<NodeJS.Timeout>();
   const [userEmail, setUserEmail] = useState("");
   const [userPhone, setUserPhone] = useState("");
   const [userDivision, setUserDivision] = useState("");
@@ -55,14 +55,14 @@ const AppIndex = () => {
     // console.log("~ userRoleName", userRoleName);
   }, [userRoleName]);
 
-  function setExpired(expired: moment.Moment) {
+  function setExpired(expired: dayjs.Dayjs) {
     setTokenExpired(expired.valueOf().toString());
   }
 
   function checkTokenExpired() {
     // console.log(tokenExpired);
-    const expired = moment(Number(tokenExpired)); // .subtract(5, 'minutes'); // expired kurangi 5 menit untuk jeda
-    const isAfter = moment().isAfter(expired); // apakah sudah lewat?
+    const expired = dayjs(Number(tokenExpired)); // .subtract(5, 'minutes'); // expired kurangi 5 menit untuk jeda
+    const isAfter = dayjs().isAfter(expired); // apakah sudah lewat?
     // console.log(
     //   'isAfter',
     //   isAfter,
@@ -71,7 +71,7 @@ const AppIndex = () => {
     //   'tokenExpired',
     //   tokenExpired
     // );
-    const schedule = isAfter ? 0 : expired.diff(moment());
+    const schedule = isAfter ? 0 : expired.diff(dayjs());
     // console.log('schedule in miliseconds', schedule);
     const refresh_token = secureStorage.getItem("refresh_token");
     clearTimeout(tokenTimeout);
@@ -174,7 +174,7 @@ const AppIndex = () => {
     // console.log("+++ save TOKEN", res.data);
     const { refresh_token, access_token, expires_in, user_id, full_name, role, vendorId } =
       res.data;
-    const expired = moment().add(expires_in || 600, "seconds");
+    const expired = dayjs().add(expires_in || 600, "seconds");
     // console.log(res.data);
     if (access_token && refresh_token) {
       secureStorage.setItem("role_name", role);
